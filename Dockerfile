@@ -1,8 +1,8 @@
-FROM ttbb/grafana:mate AS grafana
+FROM ttbb/prometheus:mate AS prometheus
 
-FROM ttbb/prometheus:mate
+FROM ttbb/grafana:mate
 
-COPY --from=grafana /opt/sh/grafana /opt/sh/grafana
+COPY --from=prometheus /opt/sh/prometheus /opt/sh/prometheus
 
 COPY source /opt/sh
 
@@ -12,4 +12,4 @@ ENV PROM_HOME /opt/sh/prometheus
 
 ENV GRAFANA_HOME /opt/sh/grafana
 
-CMD ["/usr/local/bin/dumb-init", "bash", "-vx","/opt/sh/scripts/start.sh"]
+CMD ["/usr/bin/dumb-init", "bash", "-vx","/opt/sh/scripts/start.sh"]

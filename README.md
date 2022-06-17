@@ -1,3 +1,6 @@
+## version
+- prometheus 2.36.1
+- grafana 9.0.0
 ## 环境变量举例
 ### 添加coredns，固定ip
 ```bash
